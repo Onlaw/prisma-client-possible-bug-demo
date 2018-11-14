@@ -263,6 +263,28 @@ input LawUpdateInput {
   url: String
 }
 
+input LawUpdateManyMutationInput {
+  altTitle: String
+  altSlug: String
+  historic: Boolean
+  indexedAt: DateTime
+  isSearchable: Boolean
+  justiceSystem: JusticeSystemEnum
+  language: LanguageEnum
+  lawType: LawType
+  linkedAt: DateTime
+  ministry: String
+  permalink: String
+  publicationDate: DateTime
+  published: Boolean
+  scrapedAt: DateTime
+  shortName: String
+  slug: String
+  title: String
+  uid: String
+  url: String
+}
+
 input LawUpdateManyWithoutLawBasedOnLawInput {
   create: [LawCreateWithoutLawBasedOnLawInput!]
   delete: [LawWhereUniqueInput!]
@@ -580,7 +602,7 @@ scalar Long
 type Mutation {
   createLaw(data: LawCreateInput!): Law!
   updateLaw(data: LawUpdateInput!, where: LawWhereUniqueInput!): Law
-  updateManyLaws(data: LawUpdateInput!, where: LawWhereInput): BatchPayload!
+  updateManyLaws(data: LawUpdateManyMutationInput!, where: LawWhereInput): BatchPayload!
   upsertLaw(where: LawWhereUniqueInput!, create: LawCreateInput!, update: LawUpdateInput!): Law!
   deleteLaw(where: LawWhereUniqueInput!): Law
   deleteManyLaws(where: LawWhereInput): BatchPayload!
